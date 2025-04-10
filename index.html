@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DBMS Portal - Navigation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #dbeafe, #f0f2f5);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #1e3a8a;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .greeting {
+      color: #4b5563;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .nav-button {
+      position: relative;
+      padding: 15px 30px;
+      background: linear-gradient(to right, #facc15, #fbbf24);
+      color: #111827;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .nav-button:hover {
+      background: linear-gradient(to right, #fcd34d, #f59e0b);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-button::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease, height 0.4s ease;
+    }
+
+    .nav-button:active::after {
+      width: 200px;
+      height: 200px;
+      transition: 0s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 20px;
+      background-color: #1e3a8a;
+      color: #fcd34d;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      letter-spacing: 0.5px;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 500px) {
+      .nav-button {
+        width: 80%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Welcome to DBMS Tutorial</h1>
+    <div class="greeting" id="greeting-text"></div>
+    <div class="button-group">
+      <a href="project.html" class="nav-button">Go to Main Project</a>
+      <a href="sql.html" class="nav-button">SQL</a>
+      <a href="plsql.html" class="nav-button">PL/SQL</a>
+    </div>
+  </div>
+
+  <footer>
+    Created by VASU DEV | RollNO - 4041/23 | BCA 2nd Year | Mentor: Chetan Sir
+  </footer>
+
+  <script>
+    const greeting = document.getElementById('greeting-text');
+    const hour = new Date().getHours();
+
+    let message = 'Have a great day learning!';
+    if (hour < 12) {
+      message = 'Good Morning! Ready to learn some DBMS?';
+    } else if (hour < 18) {
+      message = 'Good Afternoon! Keep pushing through!';
+    } else {
+      message = 'Good Evening! Let\'s explore DBMS concepts!';
+    }
+
+    greeting.textContent = message;
+  </script>
+</body>
+
+</html>
